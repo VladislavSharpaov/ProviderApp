@@ -83,7 +83,7 @@
         </Style>
         
         <Style TargetType="{x:Type Button}" x:Key="NavigationButtonStyle">
-            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Padding" Value="1"/>
@@ -99,7 +99,8 @@
                                     Height="{TemplateBinding Height}"
                                     CornerRadius="20"
                                     SnapsToDevicePixels="true"/>
-                            <Path Data="{TemplateBinding Content}"/>
+                            <Path Data="{TemplateBinding Content}" 
+                                  Style="{StaticResource NavigationPath}"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">

@@ -18,7 +18,8 @@
     <Window.Resources>
         <Style TargetType="{x:Type Button}" 
                BasedOn="{StaticResource NavigationButtonStyle}">
-            
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
         </Style>
     </Window.Resources>
     <Grid>
@@ -26,9 +27,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Border Height="30"
-                Background="LightGray"/>
-        <StackPanel>
+        <Border Background="LightGray"/>
+        <StackPanel HorizontalAlignment="Right" Margin="0 0 20 0">
             <Button Content="{StaticResource ExitPathData}"></Button>
         </StackPanel>
         <Frame Grid.Row="1"
