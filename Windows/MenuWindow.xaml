@@ -4,9 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProviderApp.Windows"
-        mc:Ignorable="d"
-        Title="MenuWindow" Height="450" Width="800">
+        mc:Ignorable="d" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Height="900" 
+        Width="1440"
+        FontFamily="{StaticResource Disket Mono}">
+    <WindowChrome.WindowChrome>
+        <WindowChrome NonClientFrameEdges="None" GlassFrameThickness="{x:Static WindowChrome.GlassFrameCompleteThickness}"
+                      CaptionHeight="40" ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}" 
+               BasedOn="{StaticResource NavigationButtonStyle}">
+            
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Height="30"
+                Background="LightGray"/>
+        <StackPanel>
+            <Button Content="{StaticResource ExitPathData}"></Button>
+        </StackPanel>
+        <Frame Grid.Row="1"
+               Name="MenuFrame"
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
