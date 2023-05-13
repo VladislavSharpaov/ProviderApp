@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProviderApp.Classes;
+using ProviderApp.Databases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +22,29 @@ namespace ProviderApp.Pages
     /// </summary>
     public partial class OpenPage : Page
     {
-        public OpenPage()
+        private DataService _dataService;
+        public OpenPage(DataService dataService)
         {
             InitializeComponent();
+            _dataService = dataService;
+            DataContext = _dataService;
+            
         }
 
         private void OpenButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MenuPage());
+            Account selectedAccount = ProviderDatabase.GetContext().Account.FirstOrDefault(account=>account.Login.Equals(LoginTextBox.Text)&&account.Password.Equals(PasswordBox.Password));
+            if (selectedAccount != null )
+            {
+                //DataService.SelectedAccount = selectedAccount;
+                _dataService.SelectedAccount = selectedAccount;
+                NavigationService.Navigate(new MenuPage());
+            }
+            else
+            {
+                MessageBox.Show("Введен неверный логин или пароль", "Ошибка");
+            }
+            
         }
     }
 }

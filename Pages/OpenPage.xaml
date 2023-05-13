@@ -74,7 +74,8 @@
                       Stretch="Fill"
                    Margin="20"></Path>
                     <TextBlock Text="Введите логин"/>
-                    <TextBox Name="LoginTextBox"/>
+                    <TextBox Name="LoginTextBox"
+                             Text="{Binding Line,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock Text="Введите пароль"/>
                     <PasswordBox Name="PasswordBox"/>
                     <Button Content="Войти"

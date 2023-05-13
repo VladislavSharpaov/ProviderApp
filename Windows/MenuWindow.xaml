@@ -9,8 +9,8 @@
         StateChanged="Window_StateChanged"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Height="900" 
-        Width="1440"
+        Height="720" 
+        Width="1280"
         FontFamily="{StaticResource Disket Mono}">
     <WindowChrome.WindowChrome>
         <WindowChrome NonClientFrameEdges="None" GlassFrameThickness="{x:Static WindowChrome.GlassFrameCompleteThickness}"
@@ -44,8 +44,13 @@
         </StackPanel>
         <StackPanel HorizontalAlignment="Left"
                     Orientation="Horizontal">
-            <Button Content="{StaticResource MenuPathData}"/>
-            <TextBlock Name="NameTextBlock"></TextBlock>
+            <Button Content="{StaticResource MenuPathData}"
+                    Name="MenuButton"
+                    Click="MenuButton_Click"/>
+            <TextBlock Name="NameTextBlock"
+                       Text="{Binding SelectedAccount.Worker.Name}"/>
+            <TextBlock Name="TextBlock"
+                       Text="{Binding Line,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <Frame Grid.Row="1"
                Name="MenuFrame"

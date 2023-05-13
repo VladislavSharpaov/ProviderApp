@@ -1,4 +1,5 @@
-﻿using ProviderApp.Pages;
+﻿using ProviderApp.Classes;
+using ProviderApp.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,19 @@ namespace ProviderApp.Windows
     /// </summary>
     public partial class MenuWindow : Window
     {
+        DataService _dataService;
         public MenuWindow()
         {
             InitializeComponent();
-            MenuFrame.Navigate(new OpenPage());
+
+            _dataService = new DataService();
+            DataContext = _dataService;
+
+            //if (DataService.SelectedAccount != null)
+            //{
+            //    NameTextBlock.Text = DataService.SelectedAccount.Worker.Name;
+            //}
+            MenuFrame.Navigate(new OpenPage(_dataService));
         }
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -62,6 +72,11 @@ namespace ProviderApp.Windows
             {
                 ResizeMode = ResizeMode.NoResize;
             }
+        }
+
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c766ee5862af40989b4e8064cce1fa46" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Account" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Category" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Client" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Contract" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Device" Width="1.5" PointX="7.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Request" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.RequestDevice" Width="1.5" PointX="9.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Role" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Service" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Tariff" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Type" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Worker" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_Account_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_Device_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_Client_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_Contract_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_Contract_Tariff" ManuallyRouted="false" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_Request_Contract" ManuallyRouted="false" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_RequestDevice_Device" ManuallyRouted="false" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_Request_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_Request_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_RequestDevice_Request" ManuallyRouted="false" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_Worker_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
