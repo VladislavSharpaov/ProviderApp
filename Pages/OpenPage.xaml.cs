@@ -24,5 +24,10 @@ namespace ProviderApp.Pages
         {
             InitializeComponent();
         }
+
+        private void OpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MenuPage());
+        }
     }
 }

@@ -48,5 +48,20 @@ namespace ProviderApp.Pages
         {
 
         }
+
+        private void AccountButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ContractButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ManualButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

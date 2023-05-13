@@ -23,7 +23,7 @@ namespace ProviderApp.Windows
         public MenuWindow()
         {
             InitializeComponent();
-            MenuFrame.Navigate(new MenuPage());
+            MenuFrame.Navigate(new OpenPage());
         }
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

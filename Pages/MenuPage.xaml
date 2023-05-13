@@ -45,6 +45,18 @@
                                 Content="Заявки"
                                 x:Name="RequestButton"
                                 Click="RequestButton_Click"/>
+            <providerapp:MenuButton Data="{StaticResource AccountPathData}" 
+                                Content="Аккаунты"
+                                x:Name="AccountButton"
+                                Click="AccountButton_Click"/>
+            <providerapp:MenuButton Data="{StaticResource ContractPathData}" 
+                                Content="Договора"
+                                x:Name="ContractButton"
+                                Click="ContractButton_Click"/>
+            <providerapp:MenuButton Data="{StaticResource ManualPathData}" 
+                                Content="Справочник"
+                                x:Name="ManualButton"
+                                Click="ManualButton_Click"/>
         </WrapPanel>
     </Grid>
 </Page>
