@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProviderApp
+namespace ProviderApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для OpenPage.xaml
     /// </summary>
-    public partial class OpenWindow : Window
+    public partial class OpenPage : Page
     {
-        public OpenWindow()
+        public OpenPage()
         {
             InitializeComponent();
         }

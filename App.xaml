@@ -61,15 +61,24 @@
             28c-.51-2-2.66-7.65-11.3-9.11-.88-.15-2.17-.28-3.67-.42-4-.39-13.42-1.3-14.34-3.74-.35-.94.07-1.69,1.14-3.16s2.63-3.65,
             1.09-6.29c-.83-1.4-2.43-2.11-4-2.78-2-.85-3.1-1.47-3.54-2.5H57.5a1.62,1.62,0,0,0,.54-.1l7.52,12.69a1.51,1.51,0,0,0,
             1.26.74h0a1.49,1.49,0,0,0,1.26-.69l5.8-8.94L84,81Z</Geometry>
-        <Geometry x:Key="ExitPathData">M810,737.709L737.709,810,500,572.286,262.291,810l-72.286-72.286L427.714,500,190.005,
-            262.291l72.286-72.286L500,427.714,737.709,190.005,810,262.291,572.286,500Z</Geometry>
-        <Geometry x:Key="HidePathData">M795.5,761.5h-591v-78h591v78Z</Geometry>
-        <Geometry x:Key="ExpandPathData">M19.643,35.308L6.369,48.631l2.914,2.925,16.142-16.2-0.02-.02,0.052-.052L9.289,
-            19.109l-2.919,2.92ZM25.456,48.63l2.915,2.925,16.142-16.2-0.02-.02,0.052-.052L28.375,19.108l-2.919,2.92L38.73,
-            35.307Zm19.087-.662,2.914,2.925L63.6,34.691l-0.02-.02,0.052-.052L47.462,18.445l-2.919,2.92L57.817,34.645Z</Geometry>
-        <Geometry x:Key="FullScreenPathData">M231,769V231H769V769H231ZM735.077,264.923H264.923V735.077H735.077V264.923Z</Geometry>
-        <Geometry x:Key="CollapsePathData">M725.75,664.918v64.8l-523.385.321v-0.321h-0.007V335.085h71.873v-65.12H797.624V664.6ZM237.283,
-            369.866v325.39H690.825V369.866H237.283ZM762.7,304.746H309.157v30.339H725.75V630.136H762.7V304.746Z</Geometry>
+        <Geometry x:Key="ExitPathData">M301.258,256.01L502.645,54.645c12.501-12.501,12.501-32.769,0-45.269c-12.501-12.501-32.769-12.501-45.269,0l0,
+            0 L256.01,210.762L54.645,9.376c-12.501-12.501-32.769-12.501-45.269,0s-12.501,32.769,0,45.269L210.762,
+            256.01L9.376,457.376 c-12.501,12.501-12.501,32.769,0,45.269s32.769,12.501,45.269,0L256.01,301.258l201.365,
+            201.387 c12.501,12.501,32.769,12.501,45.269,0c12.501-12.501,12.501-32.769,0-45.269L301.258,256.01z</Geometry>
+        <Geometry x:Key="HidePathData">M1.51,6.079a1.492,1.492,0,0,1,1.06.44l7.673,7.672a2.5,2.5,0,0,0,3.536,0L21.44,
+            6.529A1.5,1.5,0,1,1,23.561,8.65L15.9,16.312a5.505,5.505,0,0,1-7.778,0L.449,8.64A1.5,1.5,0,0,1,1.51,6.079Z</Geometry>
+        <Geometry x:Key="FullScreenPathData">m15 20h-10a5.006 5.006 0 0 1 -5-5v-10a5.006 5.006 0 0 1 5-5h10a5.006 5.006 0 0 1 
+            5 5v10a5.006 5.006 0 0 1 -5 5zm-10-18a3 3 0 0 0 -3 3v10a3 3 0 0 0 3 3h10a3 
+            3 0 0 0 3-3v-10a3 3 0 0 0 -3-3zm19 17v-13a1 1 0 0 0 -2 0v13a3 3 0 0 1 -3 3h-13a1
+            1 0 0 0 0 2h13a5.006 5.006 0 0 0 5-5z</Geometry>
+        <Geometry x:Key="MenuPathData">M7,0H4A4,4,0,0,0,0,4V7a4,4,0,0,0,4,4H7a4,4,0,0,0,4-4V4A4,4,
+            0,0,0,7,0ZM9,7A2,2,0,0,1,7,9H4A2,2,0,0,1,2,7V4A2,2,0,0,1,4,2H7A2,2,0,0,1,9,4Z
+	        M20,0H17a4,4,0,0,0-4,4V7a4,4,0,0,0,4,4h3a4,4,0,0,0,4-4V4A4,4,0,0,0,20,0Zm2,
+            7a2,2,0,0,1-2,2H17a2,2,0,0,1-2-2V4a2,2,0,0,1,2-2h3a2,2,0,0,1,2,2Z M7,13H4a4,4,0,0,0-4,
+            4v3a4,4,0,0,0,4,4H7a4,4,0,0,0,4-4V17A4,4,0,0,0,7,13Zm2,7a2,2,0,0,1-2,2H4a2,2,
+            0,0,1-2-2V17a2,2,0,0,1,2-2H7a2,2,0,0,1,2,2Z
+            M20,13H17a4,4,0,0,0-4,4v3a4,4,0,0,0,4,4h3a4,4,0,0,0,4-4V17A4,4,0,0,0,20,13Zm2,7a2,2,
+            0,0,1-2,2H17a2,2,0,0,1-2-2V17a2,2,0,0,1,2-2h3a2,2,0,0,1,2,2Z</Geometry>
         <!--#endregion-->
         
         <Style TargetType="Path" x:Key="NavigationPath">
@@ -79,13 +88,14 @@
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Stretch" Value="Uniform"></Setter>
-            <Setter Property="Fill" Value="White"/>
+            <Setter Property="Fill" Value="#FF373737"/>
         </Style>
         
         <Style TargetType="{x:Type Button}" x:Key="NavigationButtonStyle">
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
             <Setter Property="Padding" Value="1"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -97,17 +107,21 @@
                                     BorderThickness="{TemplateBinding BorderThickness}" 
                                     Width="{TemplateBinding Width}"
                                     Height="{TemplateBinding Height}"
-                                    CornerRadius="20"
+                                    CornerRadius="0"
                                     SnapsToDevicePixels="true"/>
                             <Path Data="{TemplateBinding Content}" 
                                   Style="{StaticResource NavigationPath}"/>
                         </Grid>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter Property="BorderBrush" 
+                                        TargetName="border" 
+                                        Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-
+                                <Setter TargetName="border"
+                                        Property="Background"
+                                        Value="DarkGray"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
                             </Trigger>

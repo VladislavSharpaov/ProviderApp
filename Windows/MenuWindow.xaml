@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ProviderApp.Windows"
         mc:Ignorable="d" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        StateChanged="Window_StateChanged"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Height="900" 
@@ -13,13 +14,14 @@
         FontFamily="{StaticResource Disket Mono}">
     <WindowChrome.WindowChrome>
         <WindowChrome NonClientFrameEdges="None" GlassFrameThickness="{x:Static WindowChrome.GlassFrameCompleteThickness}"
-                      CaptionHeight="40" ResizeBorderThickness="5" />
+                      CaptionHeight="40" ResizeBorderThickness="5"/>
     </WindowChrome.WindowChrome>
     <Window.Resources>
-        <Style TargetType="{x:Type Button}" 
+        <Style TargetType="{x:Type Button}"
                BasedOn="{StaticResource NavigationButtonStyle}">
-            <Setter Property="Width" Value="30"/>
+            <Setter Property="Width" Value="50"/>
             <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="LightGray"/>
         </Style>
     </Window.Resources>
     <Grid>
@@ -28,8 +30,22 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Border Background="LightGray"/>
-        <StackPanel HorizontalAlignment="Right" Margin="0 0 20 0">
-            <Button Content="{StaticResource ExitPathData}"></Button>
+        <StackPanel HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+            <Button Content="{StaticResource HidePathData}"
+                    Name="HideButton"
+                    Click="HideButton_Click"/>
+            <Button Content="{StaticResource FullScreenPathData}"
+                    Name="StateButton"
+                    Click="StateButton_Click"/>
+            <Button Content="{StaticResource ExitPathData}"
+                    Name="ExitButton"
+                    Click="ExitButton_Click"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+            <Button Content="{StaticResource MenuPathData}"/>
+            <TextBlock Name="NameTextBlock"></TextBlock>
         </StackPanel>
         <Frame Grid.Row="1"
                Name="MenuFrame"

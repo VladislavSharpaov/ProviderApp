@@ -29,5 +29,39 @@ namespace ProviderApp.Windows
         {
             DragMove();
         }
+
+        private void HideButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+        private void StateButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
+            {
+                ResizeMode = ResizeMode.NoResize;
+                WindowState = WindowState.Maximized;
+
+            }
+            else
+            {
+                ResizeMode = ResizeMode.CanResize;
+                WindowState = WindowState.Normal;
+            }
+        }
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+        private void Window_StateChanged(object sender, EventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                ResizeMode = ResizeMode.CanResize; 
+            }
+            else if (WindowState == WindowState.Minimized)
+            {
+                ResizeMode = ResizeMode.NoResize;
+            }
+        }
     }
 }

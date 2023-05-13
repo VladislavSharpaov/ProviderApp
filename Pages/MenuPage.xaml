@@ -36,7 +36,7 @@
             <providerapp:MenuButton Data="{StaticResource TariffPathData}" 
                                 Content="Тарифы"
                                 x:Name="TariffButton"
-                                Click="TariffButton_Click"/>
+                                Click="TariffButton_Click" Cursor="Hand"/>
             <providerapp:MenuButton Data="{StaticResource ClientPathData}" 
                                 Content="Клиенты"
                                 x:Name="ClientButton"
