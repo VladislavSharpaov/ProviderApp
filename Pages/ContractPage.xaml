@@ -83,7 +83,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         
                                         <StackPanel Margin="10"
-                                                    Width="100">
+                                                    Width="350">
                                             <TextBlock Text="Клиент:"/>
                                             <TextBlock Text="{Binding Client.Name}"/>
                                         </StackPanel>
@@ -98,7 +98,7 @@
                                             <TextBlock Text="{Binding Tariff.Name}"/>
                                         </StackPanel>
                                         <StackPanel Margin="10"
-                                                    Width="100">
+                                                    Width="150">
                                             <TextBlock Text="Дата оформления:"/>
                                             <TextBlock Text="{Binding Date, StringFormat='dd.MM.yyyy'}"/>
                                         </StackPanel>
