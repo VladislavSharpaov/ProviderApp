@@ -54,12 +54,14 @@ namespace ProviderApp.Pages
         }
         private void AddClientButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddClientPage(null));
         }
 
         private void ChangeClientButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Button button = sender as Button;
+            Client selectedClient = button.DataContext as Client;
+            NavigationService.Navigate(new AddClientPage(selectedClient));
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -68,6 +70,16 @@ namespace ProviderApp.Pages
         }
 
         private void TypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ClientFilter();
+        }
+
+        private void Page_IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            ClientFilter();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ClientFilter();
         }

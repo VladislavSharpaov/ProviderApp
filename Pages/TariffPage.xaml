@@ -6,9 +6,115 @@
       xmlns:local="clr-namespace:ProviderApp.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="TariffPage">
-
+      Title="TariffPage"
+      FontFamily="{StaticResource Comfortaa}"
+      IsHitTestVisibleChanged="Page_IsHitTestVisibleChanged"
+      Loaded="Page_Loaded">
+    <Page.Resources>
+        <Style TargetType="{x:Type Button}"
+               BasedOn="{StaticResource BaseButtonStyle}">
+            <Setter Property="Height"
+                    Value="30"/>
+            <Setter Property="Width"
+                    Value="30"/>
+            <Setter Property="Margin"
+                    Value="0"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}"
+               BasedOn="{StaticResource BaseTextBoxStyle}">
+            <Setter Property="Height"
+                    Value="30"/>
+            <Setter Property="Width"
+                    Value="200"/>
+        </Style>
+        <Style TargetType="{x:Type ComboBox}"
+               >
+            <Setter Property="Height"
+                    Value="30"/>
+            <Setter Property="Width"
+                    Value="200"/>
+            <Setter Property="Margin"
+                    Value="20 0"/>
+        </Style>
+    </Page.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Background="WhiteSmoke"
+                />
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="10"
+                    Orientation="Horizontal">
+            <Button Name="TariffButton"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="+" 
+                    Click="TariffButton_Click"/>
+            <TextBlock Text="Тариф"
+                       VerticalAlignment="Center"
+                       Margin="10 0"
+                       FontSize="18"
+                       FontFamily="{StaticResource Disket Mono}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            
+        </StackPanel>
+        <ListBox Grid.Row="1"
+                 Name="TariffListBox">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Grid Margin="3"
+                                      Background="WhiteSmoke">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <StackPanel Margin="10">
+                                            <TextBlock Text="Название тарифа:"/>
+                                            <TextBlock Text="{Binding Name}"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="10">
+                                            <TextBlock Text="Цена:"/>
+                                            <TextBlock Text="{Binding Cost, StringFormat={}{0:C2}, ConverterCulture='ru-RU'}"/>
+                                        </StackPanel>
+                                        <StackPanel Margin="10">
+                                            <TextBlock Text="Скорость, МБ/с:"/>
+                                            <TextBlock Text="{Binding Speed}"/>
+                                        </StackPanel>
+
+                                    </StackPanel>
+                                    <Button 
+                                            Name="ChangeTariffButton"
+                                            Click="ChangeTariffButton_Click"
+                                            Grid.Column="1"
+                                            Margin="20 0"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Right">
+                                        <Path Data="{StaticResource ChangePathData}"
+                                              Fill="Black"
+                                              Stretch="UniformToFill"
+                                              Margin="5">
+
+                                        </Path>
+                                    </Button>
+
+
+
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
     </Grid>
 </Page>

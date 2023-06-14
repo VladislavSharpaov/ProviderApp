@@ -40,7 +40,7 @@ namespace ProviderApp.Pages
         }
         private void AddContractButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddContractPage(null));
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -50,7 +50,9 @@ namespace ProviderApp.Pages
 
         private void ChangeContractButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Button button = sender as Button;
+            Contract selectedContract = button.DataContext as Contract;
+            NavigationService.Navigate(new AddContractPage(selectedContract));
         }
     }
 }

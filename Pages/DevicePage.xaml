@@ -82,13 +82,18 @@
                                     <TextBlock Text="{Binding Name}"
                                                FontFamily="{StaticResource Comfortaa}"
                                                Margin="20 10"/>
-                                    <Button Content="Редактировать"
+                                    <Button 
                                             Name="ChangeDeviceButton"
                                             Click="ChangeDeviceButton_Click"
                                             Grid.Column="1"
                                             Margin="20 0"
                                             VerticalAlignment="Center"
-                                            HorizontalAlignment="Right"/>
+                                            HorizontalAlignment="Right">
+                                        <Path Data="{StaticResource ChangePathData}"
+                                              Fill="Black"
+                                              Stretch="UniformToFill"
+                                              Margin="5"></Path>
+                                    </Button>
                                 </Grid>
                             </ControlTemplate>
                         </Setter.Value>

@@ -19,47 +19,43 @@ using System.Windows.Shapes;
 namespace ProviderApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddDevicePage.xaml
+    /// Логика взаимодействия для AddClientPage.xaml
     /// </summary>
-    public partial class AddDevicePage : Page
+    public partial class AddClientPage : Page
     {
-        private Device _currentDevice;
-        public AddDevicePage(Device currentDevice)
+        private Client _currentClient;
+        public AddClientPage(Client currentClient)
         {
             InitializeComponent();
 
-            List<Category> categoryList = ProviderDatabase.GetContext().Category.ToList();
-            categoryList.Insert(0, new Category
+            List<ProviderApp.Databases.Type> categoryList = ProviderDatabase.GetContext().Type.ToList();
+            categoryList.Insert(0, new ProviderApp.Databases.Type
             {
                 Name = "Все категории"
             });
-            CategoryComboBox.ItemsSource = categoryList;
-            CategoryComboBox.DisplayMemberPath = "Name";
+            TypeComboBox.ItemsSource = categoryList;
+            TypeComboBox.DisplayMemberPath = "Name";
 
 
-            if (currentDevice == null)
+            if (currentClient == null)
             {
-                
-                _currentDevice = new Device();
-                InfoTextBlock.Text = "Добавление нового оборудования";
-                AddDeviceButton.Content = "Добавить";
-                IdTextBox.Text = (ProviderDatabase.GetContext().Device.Count() + 1).ToString();
-               
+                _currentClient = new Client();
+                InfoTextBlock.Text = "Добавление нового клиента";
+                AddClientButton.Content = "Добавить";
+                IdTextBox.Text = (ProviderDatabase.GetContext().Client.Count() + 1).ToString();
+                //CategoryComboBox.SelectedIndex = 0;
             }
             else
             {
-                _currentDevice = currentDevice;
-                InfoTextBlock.Text = "Редактирование оборудования";
-                AddDeviceButton.Content = "Изменить";
-                IdTextBox.Text = currentDevice.ID.ToString();
+                _currentClient = currentClient;
+                InfoTextBlock.Text = "Редактирование клиента";
+                AddClientButton.Content = "Изменить";
+                IdTextBox.Text = currentClient.ID.ToString();
             }
-            DataContext = _currentDevice;
-
-
-
+            DataContext = _currentClient;
         }
 
-        private void AddDeviceButton_Click(object sender, RoutedEventArgs e)
+        private void AddClientButton_Click(object sender, RoutedEventArgs e)
         {
             #region Validation
             StringBuilder stringBuilder = new StringBuilder();
@@ -67,9 +63,9 @@ namespace ProviderApp.Pages
             {
                 stringBuilder.AppendLine("Введите наименование");
             }
-            if (CategoryComboBox.SelectedIndex < 1)
+            if (TypeComboBox.SelectedIndex < 1)
             {
-                stringBuilder.AppendLine("Выберите категорию");
+                stringBuilder.AppendLine("Выберите тип клиента");
             }
             if (stringBuilder.Length > 0)
             {
@@ -77,7 +73,7 @@ namespace ProviderApp.Pages
                 return;
             }
             #endregion
-            ProviderDatabase.GetContext().Device.AddOrUpdate(_currentDevice);
+            ProviderDatabase.GetContext().Client.AddOrUpdate(_currentClient);
             try
             {
 

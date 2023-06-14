@@ -1,11 +1,11 @@
-﻿<Page x:Class="ProviderApp.Pages.AddDevicePage"
+﻿<Page x:Class="ProviderApp.Pages.AddContractPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProviderApp.Pages"
       mc:Ignorable="d" 
-     >
+      >
     <Page.Resources>
         <Style TargetType="{x:Type TextBox}"
                BasedOn="{StaticResource BaseTextBoxStyle}">
@@ -59,17 +59,26 @@
                 <TextBlock Text="Идентификатор"/>
                 <TextBox Name="IdTextBox"
                          IsEnabled="False"/>
-                <TextBlock Text="Наименование"/>
-                <TextBox Name="NameTextBox"
-                         Text="{Binding Name}"/>
-                <TextBlock Text="Категория"/>
-                <ComboBox Name="CategoryComboBox"
-                          SelectedValue="{Binding Category.ID}"
+                <TextBlock Text="Адрес"/>
+                <TextBox Name="AdressTextBox"
+                         Text="{Binding Adress}"/>
+                <TextBlock Text="Клиент"/>
+                <ComboBox Name="ClientComboBox"
+                          SelectedValue="{Binding Client.ID}"
                           SelectedValuePath="ID"
-                          SelectedItem="{Binding Category}"/>
-
-                <Button Name="AddDeviceButton"
-                        Click="AddDeviceButton_Click"></Button>
+                          SelectedItem="{Binding Client}"
+                          />
+                <TextBlock Text="Тариф"/>
+                <ComboBox Name="TariffComboBox"
+                          SelectedValue="{Binding Tariff.ID}"
+                          SelectedValuePath="ID"
+                          SelectedItem="{Binding Tariff}"
+                          />
+                
+                
+                <Button Name="AddContractButton"
+                        Click="AddContractButton_Click"></Button>
+                
             </StackPanel>
         </Border>
     </Grid>

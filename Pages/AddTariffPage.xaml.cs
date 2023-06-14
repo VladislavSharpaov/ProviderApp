@@ -19,47 +19,35 @@ using System.Windows.Shapes;
 namespace ProviderApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddDevicePage.xaml
+    /// Логика взаимодействия для AddTariffPage.xaml
     /// </summary>
-    public partial class AddDevicePage : Page
+    public partial class AddTariffPage : Page
     {
-        private Device _currentDevice;
-        public AddDevicePage(Device currentDevice)
+        private Tariff _currentTariff;
+        public AddTariffPage(Tariff currentTariff)
         {
             InitializeComponent();
 
-            List<Category> categoryList = ProviderDatabase.GetContext().Category.ToList();
-            categoryList.Insert(0, new Category
+            if (currentTariff == null)
             {
-                Name = "Все категории"
-            });
-            CategoryComboBox.ItemsSource = categoryList;
-            CategoryComboBox.DisplayMemberPath = "Name";
-
-
-            if (currentDevice == null)
-            {
-                
-                _currentDevice = new Device();
-                InfoTextBlock.Text = "Добавление нового оборудования";
-                AddDeviceButton.Content = "Добавить";
-                IdTextBox.Text = (ProviderDatabase.GetContext().Device.Count() + 1).ToString();
-               
+                _currentTariff = new Tariff();
+                InfoTextBlock.Text = "Добавление нового тарифа";
+                AddTariffButton.Content = "Добавить";
+                IdTextBox.Text = (ProviderDatabase.GetContext().Tariff.Count() + 1).ToString();
+                //CategoryComboBox.SelectedIndex = 0;
             }
             else
             {
-                _currentDevice = currentDevice;
-                InfoTextBlock.Text = "Редактирование оборудования";
-                AddDeviceButton.Content = "Изменить";
-                IdTextBox.Text = currentDevice.ID.ToString();
+                _currentTariff = currentTariff;
+                InfoTextBlock.Text = "Редактирование тарифа";
+                AddTariffButton.Content = "Изменить";
+                IdTextBox.Text = currentTariff.ID.ToString();
             }
-            DataContext = _currentDevice;
-
-
+            DataContext = _currentTariff;
 
         }
 
-        private void AddDeviceButton_Click(object sender, RoutedEventArgs e)
+        private void AddTariffButton_Click(object sender, RoutedEventArgs e)
         {
             #region Validation
             StringBuilder stringBuilder = new StringBuilder();
@@ -67,9 +55,13 @@ namespace ProviderApp.Pages
             {
                 stringBuilder.AppendLine("Введите наименование");
             }
-            if (CategoryComboBox.SelectedIndex < 1)
+            if (string.IsNullOrEmpty(CostTextBox.Text))
             {
-                stringBuilder.AppendLine("Выберите категорию");
+                stringBuilder.AppendLine("Введите цену");
+            }
+            if (string.IsNullOrEmpty(SpeedTextBox.Text))
+            {
+                stringBuilder.AppendLine("Введите скорость тарифа");
             }
             if (stringBuilder.Length > 0)
             {
@@ -77,7 +69,7 @@ namespace ProviderApp.Pages
                 return;
             }
             #endregion
-            ProviderDatabase.GetContext().Device.AddOrUpdate(_currentDevice);
+            ProviderDatabase.GetContext().Tariff.AddOrUpdate(_currentTariff);
             try
             {
 

@@ -8,7 +8,9 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ClientPage"
       FontFamily="{StaticResource Disket Mono}"
-      FontSize="14">
+      FontSize="14"
+      IsHitTestVisibleChanged="Page_IsHitTestVisibleChanged"
+      Loaded="Page_Loaded">
 
 
     <Page.Resources>
@@ -65,7 +67,8 @@
                      TextChanged="SearchTextBox_TextChanged"
                      FontSize="14"
                      Margin="20 0"/>
-
+            <ComboBox Name="TypeComboBox"
+                      SelectionChanged="TypeComboBox_SelectionChanged"/>
         </StackPanel>
         <ListBox Grid.Row="1"
                  Name="ClientListBox">
@@ -94,18 +97,22 @@
                                             <TextBlock Text="Номер телефона:"/>
                                             <TextBlock Text="{Binding Phone}"/>
                                         </StackPanel>
-                                        <StackPanel Margin="10">
-                                            <TextBlock Text="Роль:"/>
-                                            <TextBlock Text="{Binding Role.Name}"/>
-                                        </StackPanel>
+                                        
                                     </StackPanel>
-                                    <Button Content="Редактировать"
+                                    <Button 
                                             Name="ChangeClientButton"
                                             Click="ChangeClientButton_Click"
                                             Grid.Column="1"
                                             Margin="20 0"
                                             VerticalAlignment="Center"
-                                            HorizontalAlignment="Right"/>
+                                            HorizontalAlignment="Right">
+                                        <Path Data="{StaticResource ChangePathData}"
+                                              Fill="Black"
+                                              Stretch="UniformToFill"
+                                              Margin="5">
+                                            
+                                        </Path>
+                                    </Button>
 
 
 

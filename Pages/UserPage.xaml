@@ -101,13 +101,18 @@
                                             <TextBlock Text="{Binding Role.Name}"/>
                                         </StackPanel>
                                     </StackPanel>
-                                    <Button Content="Редактировать"
+                                    <Button 
                                             Name="ChangeWorkerButton"
                                             Click="ChangeWorkerButton_Click"
                                             Grid.Column="1"
                                             Margin="20 0"
                                             VerticalAlignment="Center"
-                                            HorizontalAlignment="Right"/>
+                                            HorizontalAlignment="Right">
+                                        <Path Data="{StaticResource ChangePathData}"
+                                              Fill="Black"
+                                              Stretch="UniformToFill"
+                                              Margin="5"></Path>
+                                    </Button>
                                     
 
 

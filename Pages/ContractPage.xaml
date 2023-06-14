@@ -82,31 +82,40 @@
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Orientation="Horizontal">
                                         
-                                        <StackPanel Margin="10">
+                                        <StackPanel Margin="10"
+                                                    Width="100">
                                             <TextBlock Text="Клиент:"/>
                                             <TextBlock Text="{Binding Client.Name}"/>
                                         </StackPanel>
-                                        <StackPanel Margin="10">
+                                        <StackPanel Margin="10"
+                                                    Width="500">
                                             <TextBlock Text="Адрес:"/>
                                             <TextBlock Text="{Binding Adress}"/>
                                         </StackPanel>
-                                        <StackPanel Margin="10">
+                                        <StackPanel Margin="10"
+                                                    Width="100">
                                             <TextBlock Text="Тариф:"/>
                                             <TextBlock Text="{Binding Tariff.Name}"/>
                                         </StackPanel>
-                                        <StackPanel Margin="10">
+                                        <StackPanel Margin="10"
+                                                    Width="100">
                                             <TextBlock Text="Дата оформления:"/>
-                                            <TextBlock Text="{Binding Date}"/>
+                                            <TextBlock Text="{Binding Date, StringFormat='dd.MM.yyyy'}"/>
                                         </StackPanel>
 
                                     </StackPanel>
-                                    <Button Content="Редактировать"
+                                    <Button 
                                             Name="ChangeContractButton"
                                             Click="ChangeContractButton_Click"
                                             Grid.Column="1"
                                             Margin="20 0"
                                             VerticalAlignment="Center"
-                                            HorizontalAlignment="Right"/>
+                                            HorizontalAlignment="Right">
+                                        <Path Data="{StaticResource ChangePathData}"
+                                              Fill="Black"
+                                              Stretch="UniformToFill"
+                                              Margin="5"></Path>
+                                    </Button>
 
                                 </Grid>
                             </ControlTemplate>

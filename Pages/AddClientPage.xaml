@@ -1,11 +1,11 @@
-﻿<Page x:Class="ProviderApp.Pages.AddDevicePage"
+﻿<Page x:Class="ProviderApp.Pages.AddClientPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProviderApp.Pages"
       mc:Ignorable="d" 
-     >
+      >
     <Page.Resources>
         <Style TargetType="{x:Type TextBox}"
                BasedOn="{StaticResource BaseTextBoxStyle}">
@@ -59,17 +59,21 @@
                 <TextBlock Text="Идентификатор"/>
                 <TextBox Name="IdTextBox"
                          IsEnabled="False"/>
-                <TextBlock Text="Наименование"/>
+                <TextBlock Text="Клиент"/>
                 <TextBox Name="NameTextBox"
                          Text="{Binding Name}"/>
-                <TextBlock Text="Категория"/>
-                <ComboBox Name="CategoryComboBox"
-                          SelectedValue="{Binding Category.ID}"
+                <TextBlock Text="Тип клиента"/>
+                <ComboBox Name="TypeComboBox"
+                          SelectedValue="{Binding Type.ID}"
                           SelectedValuePath="ID"
-                          SelectedItem="{Binding Category}"/>
+                          SelectedItem="{Binding Type}"
+                          />
+                <TextBlock Text="Номер телефона"/>
+                <TextBox Name="PhoneTextBox"
+                         Text="{Binding Phone}"/>
 
-                <Button Name="AddDeviceButton"
-                        Click="AddDeviceButton_Click"></Button>
+                <Button Name="AddClientButton"
+                        Click="AddClientButton_Click"></Button>
             </StackPanel>
         </Border>
     </Grid>
