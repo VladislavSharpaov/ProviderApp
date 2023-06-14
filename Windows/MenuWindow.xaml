@@ -47,10 +47,18 @@
             <Button Content="{StaticResource MenuPathData}"
                     Name="MenuButton"
                     Click="MenuButton_Click"/>
-            <TextBlock Name="NameTextBlock"
-                       Text="{Binding SelectedAccount.Worker.Name}"/>
-            <TextBlock Name="TextBlock"
-                       Text="{Binding Line,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <!--<TextBlock VerticalAlignment="Center" Margin="10" Text="{Binding SelectedAccount.Worker.Name}"/>-->
+            <TextBlock VerticalAlignment="Center" 
+                       Margin="10"
+                       FontSize="16">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0} {1}">
+                        <Binding Path="SelectedAccount.Worker.Surname" />
+                        <Binding Path="SelectedAccount.Worker.Name"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+
         </StackPanel>
         <Frame Grid.Row="1"
                Name="MenuFrame"

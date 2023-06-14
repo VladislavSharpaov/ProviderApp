@@ -23,7 +23,7 @@ namespace ProviderApp.Databases
         public int ID { get; set; }
         public string Name { get; set; }
         public decimal Cost { get; set; }
-        public Nullable<int> Speed { get; set; }
+        public int Speed { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contract> Contract { get; set; }

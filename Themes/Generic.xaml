@@ -12,6 +12,9 @@
         <Setter Property="Stretch" Value="Uniform"></Setter>
         <Setter Property="Fill" Value="White"/>
     </Style>
+
+    
+    
     <Style TargetType="{x:Type local:MenuButton}">
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -59,7 +62,8 @@
                         <Trigger Property="IsPressed" Value="true">
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
-
+                            <Setter TargetName="PART_Border" Property="Background" Value="DarkGray"/>
+                            
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

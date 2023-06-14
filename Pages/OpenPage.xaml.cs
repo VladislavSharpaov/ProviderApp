@@ -38,7 +38,7 @@ namespace ProviderApp.Pages
             {
                 //DataService.SelectedAccount = selectedAccount;
                 _dataService.SelectedAccount = selectedAccount;
-                NavigationService.Navigate(new MenuPage());
+                NavigationService.Navigate(new MenuPage(_dataService));
             }
             else
             {

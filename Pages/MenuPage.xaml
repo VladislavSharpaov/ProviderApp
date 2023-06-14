@@ -28,7 +28,8 @@
             <providerapp:MenuButton Data="{StaticResource DevicePathData}" 
                                 Content="Оборудование"
                                 x:Name="DeviceButton"
-                                Click="DeviceButton_Click" Cursor="Hand"/>
+                                Click="DeviceButton_Click" 
+                                />
             <providerapp:MenuButton Data="{StaticResource UserPathData}" 
                                 Content="Сотрудники"
                                 x:Name="UserButton"

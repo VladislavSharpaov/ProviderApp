@@ -12,6 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProviderApp.Windows
@@ -21,7 +22,7 @@ namespace ProviderApp.Windows
     /// </summary>
     public partial class MenuWindow : Window
     {
-        DataService _dataService;
+        private DataService _dataService;
         public MenuWindow()
         {
             InitializeComponent();
@@ -76,7 +77,7 @@ namespace ProviderApp.Windows
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MenuFrame.Navigate(new MenuPage(_dataService));
         }
     }
 }

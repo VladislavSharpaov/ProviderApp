@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProviderApp.Databases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,33 @@ namespace ProviderApp.Pages
         public UserPage()
         {
             InitializeComponent();
+
+            WorkerFilter();
+        }
+        private void WorkerFilter()
+        {
+            List<Worker> workerList = ProviderDatabase.GetContext().Worker.ToList();
+
+            if (!string.IsNullOrEmpty(SearchTextBox.Text))
+            {
+                workerList = workerList.Where(x =>x.Surname.ToLower().Contains(SearchTextBox.Text.ToLower())).ToList();
+            }
+
+            WorkerListBox.ItemsSource = workerList;
+        }
+        private void AddWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ChangeWorkerButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            WorkerFilter();
         }
     }
 }

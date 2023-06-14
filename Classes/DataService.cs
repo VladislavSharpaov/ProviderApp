@@ -24,19 +24,7 @@ namespace ProviderApp.Classes
                 OnPropertyChanged(nameof(SelectedAccount));
             }
         }
-        private string  _line;
-        public string Line
-        {
-            get
-            {
-                return _line;
-            }
-            set
-            {
-                _line = value;
-                OnPropertyChanged(nameof(Line));
-            }
-        }
+        
         #region OnPropertyChanged
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
