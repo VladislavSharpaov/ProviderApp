@@ -28,7 +28,7 @@ namespace ProviderApp.Pages
 
             InitializeComponent();
 
-            if (dataService.SelectedAccount.Access == 1)
+            if (dataService.SelectedAccount.AccessID == 1)
             {
                 DeviceButton.IsEnabled = false;
                 TariffButton.IsEnabled = false;
@@ -37,7 +37,7 @@ namespace ProviderApp.Pages
                 ContractButton.IsEnabled = false;
                 //DeviceButton.ToolTip = "Недоступен для текущего уровня доступа";
             }
-            if (dataService.SelectedAccount.Access == 3)
+            if (dataService.SelectedAccount.AccessID == 3)
             {
                 UserButton.IsEnabled = false;
                 AccountButton.IsEnabled = false;

@@ -21,11 +21,13 @@ namespace ProviderApp.Pages
     /// </summary>
     public partial class UserPage : Page
     {
+        
         public UserPage()
         {
             InitializeComponent();
 
             WorkerFilter();
+            
         }
         private void WorkerFilter()
         {
@@ -40,15 +42,27 @@ namespace ProviderApp.Pages
         }
         private void AddWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddUserPage(null));
         }
 
         private void ChangeWorkerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Button button = sender as Button;
+            Worker selectedWorker = button.DataContext as Worker;
+            NavigationService.Navigate(new AddUserPage(selectedWorker));
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            WorkerFilter();
+        }
+
+        private void Page_IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            WorkerFilter();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             WorkerFilter();
         }

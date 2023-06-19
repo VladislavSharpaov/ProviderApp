@@ -48,12 +48,12 @@ namespace ProviderApp.Pages
 
         private void Page_IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-
+            FilterTariff();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            FilterTariff();
         }
     }
 }

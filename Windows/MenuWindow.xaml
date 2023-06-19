@@ -47,6 +47,9 @@
             <Button Content="{StaticResource MenuPathData}"
                     Name="MenuButton"
                     Click="MenuButton_Click"/>
+            <Button Content="{StaticResource ChangeAccountData}"
+                    Name="ChangeAccountButton"
+                    Click="ChangeAccountButton_Click"/>
             <!--<TextBlock VerticalAlignment="Center" Margin="10" Text="{Binding SelectedAccount.Worker.Name}"/>-->
             <TextBlock VerticalAlignment="Center" 
                        Margin="10"

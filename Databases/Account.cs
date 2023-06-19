@@ -17,9 +17,10 @@ namespace ProviderApp.Databases
         public int ID { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public byte Access { get; set; }
+        public int AccessID { get; set; }
         public int WorkerID { get; set; }
     
+        public virtual Access Access { get; set; }
         public virtual Worker Worker { get; set; }
     }
 }

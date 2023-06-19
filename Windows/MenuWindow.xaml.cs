@@ -79,5 +79,10 @@ namespace ProviderApp.Windows
         {
             MenuFrame.Navigate(new MenuPage(_dataService));
         }
+
+        private void ChangeAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuFrame.Navigate(new OpenPage(_dataService));
+        }
     }
 }

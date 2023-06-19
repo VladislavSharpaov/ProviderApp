@@ -48,7 +48,7 @@ namespace ProviderApp.Pages
             if (currentContract == null)
             {
                 _currentContract = new Contract();
-                InfoTextBlock.Text = "Добавление новый контракт";
+                InfoTextBlock.Text = "Добавление нового контракта";
                 AddContractButton.Content = "Добавить";
                 IdTextBox.Text = (ProviderDatabase.GetContext().Contract.Count() + 1).ToString();
                 _currentContract.Date = DateTime.Now;

@@ -54,5 +54,15 @@ namespace ProviderApp.Pages
             Contract selectedContract = button.DataContext as Contract;
             NavigationService.Navigate(new AddContractPage(selectedContract));
         }
+
+        private void Page_IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            ContractFilter();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            ContractFilter();
+        }
     }
 }

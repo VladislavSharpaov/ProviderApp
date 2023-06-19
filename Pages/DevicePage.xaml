@@ -9,7 +9,8 @@
       Title="DevicePage"
       FontFamily="{StaticResource Disket Mono}"
       IsHitTestVisibleChanged="Page_IsHitTestVisibleChanged"
-      Loaded="Page_Loaded">
+      Loaded="Page_Loaded"
+      FontSize="16">
     <Page.Resources>
         <Style TargetType="{x:Type Button}"
                BasedOn="{StaticResource BaseButtonStyle}">

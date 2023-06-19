@@ -11,8 +11,8 @@ namespace ProviderApp.Classes
 {
     public class DataService : INotifyPropertyChanged
     {
-        private Account _selectedAccount;
-        public Account SelectedAccount
+        private Account _selectedAccount; //Статическая часть
+        public Account SelectedAccount //Динамическая часть
         {
             get
             { 
@@ -29,8 +29,6 @@ namespace ProviderApp.Classes
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-            //if (PropertyChanged != null)
-            //    PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

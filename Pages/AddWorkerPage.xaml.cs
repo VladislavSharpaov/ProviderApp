@@ -19,53 +19,62 @@ using System.Windows.Shapes;
 namespace ProviderApp.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddClientPage.xaml
+    /// Логика взаимодействия для AddUserPage.xaml
     /// </summary>
-    public partial class AddClientPage : Page
+    public partial class AddUserPage : Page
     {
-        private Client _currentClient;
-        public AddClientPage(Client currentClient)
+        private Worker _currentWorker;
+        public AddUserPage(Worker currentWorker)
         {
             InitializeComponent();
-
-            List<ProviderApp.Databases.Type> typeList = ProviderDatabase.GetContext().Type.ToList();
-            typeList.Insert(0, new ProviderApp.Databases.Type
+            List < Role> roleList = ProviderDatabase.GetContext().Role.ToList();
+            roleList.Insert(0, new Role
             {
                 Name = "Все категории"
             });
-            TypeComboBox.ItemsSource = typeList;
-            TypeComboBox.DisplayMemberPath = "Name";
+            RoleComboBox.ItemsSource = roleList;
+            RoleComboBox.DisplayMemberPath = "Name";
 
 
-            if (currentClient == null)
+            if (currentWorker == null)
             {
-                _currentClient = new Client();
-                InfoTextBlock.Text = "Добавление нового клиента";
-                AddClientButton.Content = "Добавить";
-                IdTextBox.Text = (ProviderDatabase.GetContext().Client.Count() + 1).ToString();
+                _currentWorker = new Worker();
+                InfoTextBlock.Text = "Добавление нового сотрудника";
+                AddWorkerButton.Content = "Добавить";
+                IdTextBox.Text = (ProviderDatabase.GetContext().Worker.Count() + 1).ToString();
                 //CategoryComboBox.SelectedIndex = 0;
             }
             else
             {
-                _currentClient = currentClient;
-                InfoTextBlock.Text = "Редактирование клиента";
-                AddClientButton.Content = "Изменить";
-                IdTextBox.Text = currentClient.ID.ToString();
+                _currentWorker = currentWorker;
+                InfoTextBlock.Text = "Редактирование сотрудника";
+                AddWorkerButton.Content = "Изменить";
+                IdTextBox.Text = currentWorker.ID.ToString();
             }
-            DataContext = _currentClient;
+            DataContext = _currentWorker;
         }
 
-        private void AddClientButton_Click(object sender, RoutedEventArgs e)
+       
+
+        private void AddWorkerButton_Click(object sender, RoutedEventArgs e)
         {
             #region Validation
             StringBuilder stringBuilder = new StringBuilder();
+            if (string.IsNullOrEmpty(SurnameTextBox.Text))
+            {
+                stringBuilder.AppendLine("Введите фамилию");
+            }
             if (string.IsNullOrEmpty(NameTextBox.Text))
             {
-                stringBuilder.AppendLine("Введите наименование");
+                stringBuilder.AppendLine("Введите имя");
             }
-            if (TypeComboBox.SelectedIndex < 1)
+            if (string.IsNullOrEmpty(PatronymicTextBox.Text))
             {
-                stringBuilder.AppendLine("Выберите тип клиента");
+                stringBuilder.AppendLine("Введите отчество");
+            }
+            if (RoleComboBox.SelectedIndex < 1)
+            {
+                stringBuilder.AppendLine("Выберите роль");
             }
             if (stringBuilder.Length > 0)
             {
@@ -73,7 +82,7 @@ namespace ProviderApp.Pages
                 return;
             }
             #endregion
-            ProviderDatabase.GetContext().Client.AddOrUpdate(_currentClient);
+            ProviderDatabase.GetContext().Worker.AddOrUpdate(_currentWorker);
             try
             {
 

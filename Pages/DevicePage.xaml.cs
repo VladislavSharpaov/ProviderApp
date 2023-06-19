@@ -1,4 +1,5 @@
-﻿using ProviderApp.Databases;
+﻿using ProviderApp.Classes;
+using ProviderApp.Databases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace ProviderApp.Pages
     /// </summary>
     public partial class DevicePage : Page
     {
+        
         public DevicePage()
         {
             InitializeComponent();
@@ -33,7 +35,8 @@ namespace ProviderApp.Pages
             CategoryComboBox.ItemsSource = categoryList;
             CategoryComboBox.DisplayMemberPath = "Name";
             CategoryComboBox.SelectedIndex = 0;
-            
+
+          
 
             FilterDevice();
         }

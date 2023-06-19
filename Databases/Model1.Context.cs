@@ -25,6 +25,7 @@ namespace ProviderApp.Databases
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Access> Access { get; set; }
         public virtual DbSet<Account> Account { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Client> Client { get; set; }

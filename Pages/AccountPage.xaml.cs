@@ -37,7 +37,7 @@ namespace ProviderApp.Pages
 
         private void AccountButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddAccountPage(null));
         }
         private void AccountFilter()
         {
@@ -58,12 +58,24 @@ namespace ProviderApp.Pages
 
         private void ChangeAccountButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Button button = sender as Button;
+            Account selectedAccount = button.DataContext as Account;
+            NavigationService.Navigate(new AddAccountPage(selectedAccount));
         }
 
        
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            AccountFilter();
+        }
+
+        private void Page_IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            AccountFilter();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             AccountFilter();
         }

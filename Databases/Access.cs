@@ -12,25 +12,18 @@ namespace ProviderApp.Databases
     using System;
     using System.Collections.Generic;
     
-    public partial class Request
+    public partial class Access
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Request()
+        public Access()
         {
-            this.RequestDevice = new HashSet<RequestDevice>();
+            this.Account = new HashSet<Account>();
         }
     
         public int ID { get; set; }
-        public int ContractID { get; set; }
-        public int WorkerID { get; set; }
-        public bool Status { get; set; }
-        public System.DateTime Date { get; set; }
-        public Nullable<int> ServiceID { get; set; }
+        public string Name { get; set; }
     
-        public virtual Contract Contract { get; set; }
-        public virtual Service Service { get; set; }
-        public virtual Worker Worker { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RequestDevice> RequestDevice { get; set; }
+        public virtual ICollection<Account> Account { get; set; }
     }
 }

@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище ProviderDataBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Access">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="ID" />
@@ -12,7 +19,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Access" Type="tinyint" Nullable="false" />
+          <Property Name="AccessID" Type="int" Nullable="false" />
           <Property Name="WorkerID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Category">
@@ -59,7 +66,7 @@
           <Property Name="WorkerID" Type="int" Nullable="false" />
           <Property Name="Status" Type="bit" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
-          <Property Name="ServiceID" Type="int" Nullable="false" />
+          <Property Name="ServiceID" Type="int" />
         </EntityType>
         <EntityType Name="RequestDevice">
           <Key>
@@ -111,6 +118,18 @@
           <Property Name="Patronymic" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="RoleID" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Account_Access">
+          <End Role="Access" Type="Self.Access" Multiplicity="1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Access">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="AccessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Account_Worker">
           <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
@@ -184,7 +203,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Request_Service">
-          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Service">
@@ -244,6 +263,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище ProviderDataBaseModelContainer">
+          <EntitySet Name="Access" EntityType="Self.Access" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
@@ -256,6 +276,10 @@
           <EntitySet Name="Tariff" EntityType="Self.Tariff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Type" EntityType="Self.Type" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Account_Access" Association="Self.FK_Account_Access">
+            <End Role="Access" EntitySet="Access" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
           <AssociationSet Name="FK_Account_Worker" Association="Self.FK_Account_Worker">
             <End Role="Worker" EntitySet="Worker" />
             <End Role="Account" EntitySet="Account" />
@@ -306,6 +330,14 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProviderDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Access">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="Self.FK_Account_Access" FromRole="Access" ToRole="Account" />
+        </EntityType>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="ID" />
@@ -313,8 +345,9 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Access" Type="Byte" Nullable="false" />
+          <Property Name="AccessID" Type="Int32" Nullable="false" />
           <Property Name="WorkerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Access" Relationship="Self.FK_Account_Access" FromRole="Account" ToRole="Access" />
           <NavigationProperty Name="Worker" Relationship="Self.FK_Account_Worker" FromRole="Account" ToRole="Worker" />
         </EntityType>
         <EntityType Name="Category">
@@ -369,7 +402,7 @@
           <Property Name="WorkerID" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ServiceID" Type="Int32" Nullable="false" />
+          <Property Name="ServiceID" Type="Int32" />
           <NavigationProperty Name="Contract" Relationship="Self.FK_Request_Contract" FromRole="Request" ToRole="Contract" />
           <NavigationProperty Name="Service" Relationship="Self.FK_Request_Service" FromRole="Request" ToRole="Service" />
           <NavigationProperty Name="Worker" Relationship="Self.FK_Request_Worker" FromRole="Request" ToRole="Worker" />
@@ -434,6 +467,18 @@
           <NavigationProperty Name="Request" Relationship="Self.FK_Request_Worker" FromRole="Worker" ToRole="Request" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Worker_Role" FromRole="Worker" ToRole="Role" />
         </EntityType>
+        <Association Name="FK_Account_Access">
+          <End Role="Access" Type="Self.Access" Multiplicity="1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Access">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="AccessID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Account_Worker">
           <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
@@ -519,7 +564,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Request_Service">
-          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="0..1" />
           <End Role="Request" Type="Self.Request" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Service">
@@ -567,6 +612,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ProviderDataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Access" EntityType="Self.Access" />
           <EntitySet Name="Account" EntityType="Self.Account" />
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="Client" EntityType="Self.Client" />
@@ -579,6 +625,10 @@
           <EntitySet Name="Tariff" EntityType="Self.Tariff" />
           <EntitySet Name="Type" EntityType="Self.Type" />
           <EntitySet Name="Worker" EntityType="Self.Worker" />
+          <AssociationSet Name="FK_Account_Access" Association="Self.FK_Account_Access">
+            <End Role="Access" EntitySet="Access" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
           <AssociationSet Name="FK_Account_Worker" Association="Self.FK_Account_Worker">
             <End Role="Worker" EntitySet="Worker" />
             <End Role="Account" EntitySet="Account" />
@@ -630,13 +680,21 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище ProviderDataBaseModelContainer" CdmEntityContainer="ProviderDataBaseEntities">
+          <EntitySetMapping Name="Access">
+            <EntityTypeMapping TypeName="ProviderDataBaseModel.Access">
+              <MappingFragment StoreEntitySet="Access">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Account">
             <EntityTypeMapping TypeName="ProviderDataBaseModel.Account">
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Access" ColumnName="Access" />
+                <ScalarProperty Name="AccessID" ColumnName="AccessID" />
                 <ScalarProperty Name="WorkerID" ColumnName="WorkerID" />
               </MappingFragment>
             </EntityTypeMapping>

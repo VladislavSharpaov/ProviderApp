@@ -8,7 +8,9 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AccountPage"
       FontFamily="{StaticResource Disket Mono}"
-      FontSize="14">
+      FontSize="14"
+      IsHitTestVisibleChanged="Page_IsHitTestVisibleChanged"
+      Loaded="Page_Loaded">
       
       
     <Page.Resources>
@@ -98,7 +100,7 @@
                                         </StackPanel>
                                         <StackPanel Margin="10">
                                             <TextBlock Text="Уровень доступа:"/>
-                                            <ComboBox SelectedIndex="{Binding Access}"
+                                            <ComboBox SelectedIndex="{Binding AccessID}"
                                                       IsEnabled="False"
                                                       Width="300">
                                                 <ComboBoxItem></ComboBoxItem>

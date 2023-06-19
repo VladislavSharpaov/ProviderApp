@@ -7,9 +7,10 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TariffPage"
-      FontFamily="{StaticResource Comfortaa}"
+      FontFamily="{StaticResource Disket Mono}"
       IsHitTestVisibleChanged="Page_IsHitTestVisibleChanged"
-      Loaded="Page_Loaded">
+      Loaded="Page_Loaded"
+      FontSize="16">
     <Page.Resources>
         <Style TargetType="{x:Type Button}"
                BasedOn="{StaticResource BaseButtonStyle}">

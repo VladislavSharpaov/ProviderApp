@@ -4,8 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="509c8c9a85e949739635a67e6779dce5" Name="Diagram1">
-        <EntityTypeShape EntityType="ProviderDataBaseModel.Account" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
+      <Diagram DiagramId="c9f022ef286b486b9229d3186b36b090" Name="Diagram1">
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Access" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProviderDataBaseModel.Account" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ProviderDataBaseModel.Category" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProviderDataBaseModel.Client" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ProviderDataBaseModel.Contract" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
@@ -17,6 +18,7 @@
         <EntityTypeShape EntityType="ProviderDataBaseModel.Tariff" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProviderDataBaseModel.Type" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProviderDataBaseModel.Worker" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="ProviderDataBaseModel.FK_Account_Access" ManuallyRouted="false" />
         <AssociationConnector Association="ProviderDataBaseModel.FK_Account_Worker" ManuallyRouted="false" />
         <AssociationConnector Association="ProviderDataBaseModel.FK_Device_Category" ManuallyRouted="false" />
         <AssociationConnector Association="ProviderDataBaseModel.FK_Client_Type" ManuallyRouted="false" />
